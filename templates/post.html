@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Публикация{% endblock %}
+{% block content %}
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-3 mb-3 mt-1">
+            {% include 'include/_author_profile.html' with author=author posts_amount=posts_amount follow=follow %}
+        </div>
+
+        <div class="col-md-9">
+            {% include 'include/_post.html' with post=post %}
+        </div>
+    </div>
+
+    {% include 'comments.html' with comments=comments %}
+</main>
+{% endblock %}

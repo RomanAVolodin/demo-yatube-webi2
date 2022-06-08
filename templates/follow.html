@@ -1,0 +1,7 @@
+{% extends 'index.html' %}
+{% block title %}Избранные авторы{% endblock %}
+{% block header %}Избранные авторы{% endblock %}
+
+{% block menu_all_follow %}
+    {% include 'include/menu.html' with follow=True %}
+{% endblock %}

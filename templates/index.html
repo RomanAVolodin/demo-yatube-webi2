@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Последние обновления на сайте{% endblock %}
+{% block header %}Последние обновления на сайте{% endblock %}
+{% block content %}
+    <div class="container">
+        {% block menu_all_follow %}
+            {% include 'include/menu.html' with index=True %}
+        {% endblock %}
+
+        {% for post in page %}
+            {% include 'include/_post.html' with post=post %}
+            {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %}
+        <!--{{ time }} time for cache testing-->
+
+        {% if page.has_other_pages %}
+            {% include 'paginator.html' with items=page paginator=paginator %}
+        {% endif %}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Записи автора {{ author.get_full_name }}{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+
+<main role="main" class="container">
+    <div class="row">
+            <div class="col-md-3 mb-3 mt-1">
+                {% include 'include/_author_profile.html' with author=author posts_amount=posts_amount follow=follow %}
+            </div>
+
+            <div class="col-md-9">
+
+                {% for post in page %}
+                    {% include 'include/_post.html' with post=post %}
+                {% endfor %}
+
+                {% if page.has_other_pages %}
+                    {% include 'paginator.html' with items=page paginator=paginator %}
+                {% endif %}
+
+            </div>
+    </div>
+</main>
+
+{% endblock %}
