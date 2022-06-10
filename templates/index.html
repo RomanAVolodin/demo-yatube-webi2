@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% block title %}Последние обновления на сайте{% endblock %}
 {% block header %}Последние обновления на сайте{% endblock %}
 {% block content %}
@@ -11,12 +13,15 @@
             {% include 'include/_post.html' with post=post %}
             {% if not forloop.last %}<hr>{% endif %}
         {% endfor %}
-        <!--{{ time }} time for cache testing-->
 
+        <!--for ListView use: if page_obj.has_other_pages-->
         {% if page.has_other_pages %}
             {% include 'paginator.html' with items=page paginator=paginator %}
         {% endif %}
 
+        <small>
+            Проверим кэширование и внедрение в контекст: {{ time }}
+        </small>
     </div>
 
 {% endblock %}

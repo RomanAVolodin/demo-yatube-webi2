@@ -28,7 +28,7 @@ def index(request):
         .prefetch_related('comments')
         .all()
     )
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, 5)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
     return render(

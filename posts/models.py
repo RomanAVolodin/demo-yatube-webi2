@@ -2,19 +2,20 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail import delete as delete_thumbnail
+from django.utils.translation import gettext_lazy as _
 
 
 User = get_user_model()
 
 
 class Group(models.Model):
-    title = models.CharField(max_length=200, verbose_name='Название')
+    title = models.CharField(max_length=200, verbose_name=_('Title'))
     slug = models.SlugField(unique=True)
-    description = models.TextField(verbose_name='Описание')
+    description = models.TextField(verbose_name=_('Description'))
 
     class Meta:
-        verbose_name = 'Сообщество'
-        verbose_name_plural = 'Сообщества'
+        verbose_name = _('Community')
+        verbose_name_plural = _('Communities')
 
     def __str__(self):
         return self.title
@@ -25,15 +26,15 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-    text = models.TextField(verbose_name='Текст сообщения')
+    text = models.TextField(verbose_name=_('Post text'))
     pub_date = models.DateTimeField(
-        auto_now_add=True, verbose_name='Дата публикации', db_index=True
+        auto_now_add=True, verbose_name=_('Publication date'), db_index=True
     )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='posts',
-        verbose_name='Автор',
+        verbose_name=_('Author'),
     )
     group = models.ForeignKey(
         Group,
@@ -41,13 +42,13 @@ class Post(models.Model):
         related_name='posts',
         null=True,
         blank=True,
-        verbose_name='Сообщество',
+        verbose_name=_('Community'),
     )
-    image = models.ImageField(upload_to='posts/', blank=True, null=True)
+    image = models.ImageField(upload_to='posts/', blank=True, null=True, verbose_name=_('Image'))
 
     class Meta:
-        verbose_name = 'Публикация'
-        verbose_name_plural = 'Публикации'
+        verbose_name = _('Post')
+        verbose_name_plural = _('Posts')
         ordering = ['-pub_date']
 
     @property
@@ -75,26 +76,26 @@ class Comment(models.Model):
         Post,
         on_delete=models.CASCADE,
         related_name='comments',
-        verbose_name='Пост',
+        verbose_name=_('Comment'),
     )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='comments',
-        verbose_name='Автор',
+        verbose_name=_('Author'),
     )
-    text = models.TextField(verbose_name='Текст комментария')
+    text = models.TextField(verbose_name=_('Comment text'))
     created = models.DateTimeField(
-        auto_now_add=True, verbose_name='Дата добавления'
+        auto_now_add=True, verbose_name=_('Date')
     )
 
     class Meta:
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = _('Comment')
+        verbose_name_plural = _('Comments')
         ordering = ['-created']
 
     def __str__(self):
-        return f'Коммент #{self.id}'
+        return f'#{self.id}'
 
 
 class Follow(models.Model):
@@ -102,20 +103,20 @@ class Follow(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='follower',
-        verbose_name='Подписант',
+        verbose_name=_('Follower'),
     )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='following',
-        verbose_name='Автор',
+        verbose_name=_('Author'),
     )
 
     class Meta:
-        verbose_name = 'Подписка'
-        verbose_name_plural = 'Подписки'
+        verbose_name = _('Subscription')
+        verbose_name_plural = _('Subscriptions')
         unique_together = ['user', 'author']
 
     def __str__(self):
-        return f'Подписка {self.user} на {self.author}'
+        return f'{self.user} на {self.author}'
 

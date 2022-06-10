@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.flatpages import views
+from django.conf.urls.i18n import i18n_patterns
 
 from posts import views as posts_views
 
@@ -11,16 +12,16 @@ handler404 = 'posts.views.page_not_found'  # noqa
 handler500 = 'posts.views.server_error'  # noqa
 
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('about/', include('django.contrib.flatpages.urls')),
     path('auth/', include('users.urls')),
     path('auth/', include('django.contrib.auth.urls')),
     path('404/', posts_views.page_not_found),
     path('500/', posts_views.server_error),
-]
+)
 
-urlpatterns += [
+urlpatterns += i18n_patterns(
     path(
         'about-author/',
         views.flatpage,
@@ -28,9 +29,9 @@ urlpatterns += [
         name='about',
     ),
     path('about-spec/', views.flatpage, {'url': '/about-spec/'}, name='terms'),
-]
+)
 
-urlpatterns += [path('', include('posts.urls'))]
+urlpatterns += i18n_patterns(path('', include('posts.urls')))
 
 if settings.DEBUG:
     urlpatterns += static(

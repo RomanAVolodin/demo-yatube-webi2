@@ -1,14 +1,23 @@
+{% load i18n %}
+{% load i18n_switcher %}
+{% load static %}
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="/"><span style="color:red">Ya</span>tube</a>
     <nav class="my-2 my-md-0 mr-md-3">
+         <a href="{{ request|switch_i18n:'en' }}">
+            <img class="i18n_flag" src="{% static 'images/flag_en.png' %}"/>
+         </a>
+         <a href="{{ request|switch_i18n:'ru' }}">
+            <img class="i18n_flag" src="{% static 'images/flag_ru.png' %}"/>
+         </a>
         {% if user.is_authenticated %}
-            Пользователь: {{ user.username }}.
-            <a class="p-2 text-dark" href="{% url 'new_post' %}">Новая запись</a>
-            <a class="p-2 text-dark" href="{% url 'password_change' %}">Изменить пароль</a>
-            <a class="p-2 text-dark" href="{% url 'logout' %}">Выйти</a>
+            {% trans 'User' %}: {{ user.username }}.
+            <a class="p-2 text-dark" href="{% url 'new_post' %}">{% trans 'New post' %}</a>
+            <a class="p-2 text-dark" href="{% url 'password_change' %}">{% trans 'Change password' %}</a>
+            <a class="p-2 text-dark" href="{% url 'logout' %}">{% trans 'Exit' %}</a>
         {% else %}
-            <a class="p-2 text-dark" href="{% url 'login' %}">Войти</a> |
-            <a class="p-2 text-dark" href="{% url 'signup' %}">Регистрация</a>
+            <a class="p-2 text-dark" href="{% url 'login' %}">{% trans 'Login' %}</a> |
+            <a class="p-2 text-dark" href="{% url 'signup' %}">{% trans 'Register' %}</a>
         {% endif %}
     </nav>
 </nav>

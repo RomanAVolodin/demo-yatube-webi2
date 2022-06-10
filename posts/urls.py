@@ -1,10 +1,12 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
 from . import views
+from . import views_alt
 
 
 urlpatterns = [
     path('', views.index, name='index'),
+    # path('', views_alt.IndexView.as_view(), name='index'),
     path('group/<slug>/', views.group_posts, name='group'),
     path('new/', login_required(views.AddPost.as_view()), name='new_post'),
     path('<str:username>/<int:post_id>/', views.post_view, name='post'),

@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-10 18:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: posts/models.py:12
+msgid "Title"
+msgstr "Название"
+
+#: posts/models.py:14
+msgid "Description"
+msgstr "Описание"
+
+#: posts/models.py:17 posts/models.py:45
+msgid "Community"
+msgstr "Сообщество"
+
+#: posts/models.py:18
+msgid "Communities"
+msgstr "Сообщества"
+
+#: posts/models.py:29
+msgid "Post text"
+msgstr "Текст публикации"
+
+#: posts/models.py:31
+msgid "Publication date"
+msgstr "Дата публикации"
+
+#: posts/models.py:37 posts/models.py:85 posts/models.py:112
+msgid "Author"
+msgstr "Автор"
+
+#: posts/models.py:47
+msgid "Image"
+msgstr "Изображение"
+
+#: posts/models.py:50
+msgid "Post"
+msgstr "Публикация"
+
+#: posts/models.py:51
+msgid "Posts"
+msgstr "Публикации"
+
+#: posts/models.py:79 posts/models.py:93
+msgid "Comment"
+msgstr "Комментарий"
+
+#: posts/models.py:87
+msgid "Comment text"
+msgstr "Текст комментария"
+
+#: posts/models.py:89
+msgid "Date"
+msgstr "Дата"
+
+#: posts/models.py:94
+msgid "Comments"
+msgstr "Комментарии"
+
+#: posts/models.py:106
+msgid "Follower"
+msgstr "Подписант"
+
+#: posts/models.py:116
+msgid "Subscription"
+msgstr "Подписка"
+
+#: posts/models.py:117
+msgid "Subscriptions"
+msgstr "Подписки"
+
+#: templates/admin/base_site.html:24
+msgid "Documentation"
+msgstr "Документация"
+
+#: templates/admin/base_site.html:28 templates/nav.html:16
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: templates/admin/base_site.html:30
+msgid "Log out"
+msgstr "Выйти"
+
+#: templates/index.html:4 templates/index.html:5
+#, fuzzy
+#| msgid "Enter the website"
+msgid "Last updates on website"
+msgstr "Последние обновления на сайте"
+
+#: templates/nav.html:14
+msgid "User"
+msgstr "Пользователь"
+
+#: templates/nav.html:15
+msgid "New post"
+msgstr "Новый пост"
+
+#: templates/nav.html:17
+msgid "Exit"
+msgstr "Выход"
+
+#: templates/nav.html:19 users/templates/registration/login.html:48
+msgid "Login"
+msgstr "Вход"
+
+#: templates/nav.html:20
+msgid "Register"
+msgstr "Регистрация"
+
+#: users/templates/registration/login.html:10
+msgid "Enter the website"
+msgstr "Войти на сайт"
+
+#: users/templates/registration/login.html:14
+msgid "Username and password does not fit. Enter correct creds"
+msgstr "Имя пользователя и пароль не подходят. Укажите корректные данные."
+
+#: users/templates/registration/login.html:25
+msgid "Please authorize"
+msgstr "Пожалуйста авторизуйтесь"
+
+#: users/templates/registration/login.html:33
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: users/templates/registration/login.html:40
+msgid "Password"
+msgstr "Пароль"
+
+#: users/templates/registration/login.html:51
+msgid "Forgot password?"
+msgstr "Забыли пароль"
+
+#: yatube/settings.py:125
+msgid "English"
+msgstr "Английский"
+
+#: yatube/settings.py:126
+msgid "Russian"
+msgstr "Русский"

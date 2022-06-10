@@ -2,15 +2,16 @@
 {% block title %}Войти{% endblock %}
 {% block content %}
 {% load user_filters %}
+{% load i18n %}
 
 <div class="row justify-content-center">
   <div class="col-md-8 p-5">
     <div class="card">
-      <div class="card-header">Войти на сайт</div>
+      <div class="card-header">{% trans 'Enter the website' %}</div>
       <div class="card-body">
         {% if form.errors %}
         <div class="alert alert-danger" role="alert">
-          Имя пользоваетеля и пароль не совпадают. Введите правильные данные.
+            {% trans 'Username and password does not fit. Enter correct creds' %}
         </div>
         {% endif %}
 
@@ -21,7 +22,7 @@
             </div>
         {% else %}
             <div class="alert alert-info" role="alert">
-              Пожалуйста, авторизуйтесь.
+              {% trans 'Please authorize' %}
             </div>
         {% endif %}
 
@@ -29,14 +30,14 @@
           {% csrf_token %}
           <input type="hidden" name="next" value="{{ next }}">
           <div class="form-group row">
-              <label for="{{ form.username.id_for_label }}" class="col-md-4 col-form-label text-md-right">Имя пользователя</label>
+              <label for="{{ form.username.id_for_label }}" class="col-md-4 col-form-label text-md-right">{% trans 'Username' %}</label>
               <div class="col-md-6">
                   {{ form.username|addclass:"form-control" }}
               </div>
           </div>
 
           <div class="form-group row">
-              <label for="{{ form.password.id_for_label }}" class="col-md-4 col-form-label text-md-right">Пароль</label>
+              <label for="{{ form.password.id_for_label }}" class="col-md-4 col-form-label text-md-right">{% trans 'Password' %}</label>
               <div class="col-md-6">
                   {{ form.password|addclass:"form-control" }}
               </div>
@@ -44,10 +45,10 @@
 
           <div class="col-md-6 offset-md-4">
               <button type="submit" class="btn btn-primary">
-                Войти
+                {% trans 'Login' %}
               </button>
               <a href="{% url 'password_reset' %}" class="btn btn-link">
-                Забыли пароль?
+                {% trans 'Forgot password?' %}
               </a>
           </div>
         </form>
