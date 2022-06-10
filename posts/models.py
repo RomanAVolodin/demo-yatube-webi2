@@ -25,6 +25,11 @@ class Group(models.Model):
         return self.posts.all()[:12]
 
 
+class ImagedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(image__isnull=False)
+
+
 class Post(models.Model):
     text = models.TextField(verbose_name=_('Post text'))
     pub_date = models.DateTimeField(
@@ -45,6 +50,8 @@ class Post(models.Model):
         verbose_name=_('Community'),
     )
     image = models.ImageField(upload_to='posts/', blank=True, null=True, verbose_name=_('Image'))
+
+    imaged_objects = ImagedManager()
 
     class Meta:
         verbose_name = _('Post')
