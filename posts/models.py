@@ -51,7 +51,7 @@ class Post(models.Model):
     )
     image = models.ImageField(upload_to='posts/', blank=True, null=True, verbose_name=_('Image'))
 
-    imaged_objects = ImagedManager()
+    # imaged_objects = ImagedManager()
 
     class Meta:
         verbose_name = _('Post')
