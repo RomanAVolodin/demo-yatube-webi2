@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'django_cleanup',
     'sorl.thumbnail',
     'debug_toolbar',
@@ -156,7 +157,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGGING = {
+LOGGING_old = {
     'version': 1,
     'disable_existing_loggers': False,
     'filters': {
@@ -181,3 +182,5 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+APPEND_SLASH = True
